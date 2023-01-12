@@ -12,8 +12,6 @@ public class Wybieg implements Ekspozycja {
     private final List<Zwierze> zwierzeta;
     private final List<Opiekun> opiekunowie;
 
-
-
     public Wybieg(String nazwa, float powierzchnia, boolean zakryty, String typSrodowiska) {
         this.nazwa = nazwa;
         this.powierzchnia = powierzchnia;
