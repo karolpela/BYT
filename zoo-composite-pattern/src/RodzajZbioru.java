@@ -1,3 +1,3 @@
 public enum RodzajZbioru {
-    OgródZoologiczny, Strefa, Pawilon, Alejka
+    OgrodZoologiczny, Strefa, Pawilon, Alejka
 }

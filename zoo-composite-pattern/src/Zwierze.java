@@ -1,20 +1,36 @@
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Zwierze {
     private String imie;
     private String krajPochodzenia;
-    private Date dataUrodzenia;
-    private Date dataSmierci;
+    private LocalDate dataUrodzenia;
+    private LocalDate dataSmierci;
     private String gromada;
     private String gatunek;
 
-    public float getIloscKarmyNaDzien() {
-        return 0;
+    private ZasadyKarmienia zasadyKarmienia;
+
+    public Zwierze(String imie, String krajPochodzenia, LocalDate dataUrodzenia, LocalDate dataSmierci, String gromada, String gatunek, ZasadyKarmienia zasadyKarmienia) {
+        this.imie = imie;
+        this.krajPochodzenia = krajPochodzenia;
+        this.dataUrodzenia = dataUrodzenia;
+        this.dataSmierci = dataSmierci;
+        this.gromada = gromada;
+        this.gatunek = gatunek;
+        this.zasadyKarmienia = zasadyKarmienia;
     }
 
+    public float getIloscKarmyNaDzien() {
+        return zasadyKarmienia.getPrzeliczonaIloscNaDzien();
+    }
 
-
+    public ZasadyKarmienia getZasadyKarmienia() {
+        return zasadyKarmienia;
+    }
+    public void setZasadyKarmienia(ZasadyKarmienia zasadyKarmienia) {
+        this.zasadyKarmienia = zasadyKarmienia;
+    }
 
     // methods unrelated to the Composite pattern implementation
     public void wyswietlInformacje() {}
