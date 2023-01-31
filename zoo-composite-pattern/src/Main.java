@@ -44,6 +44,22 @@ public class Main {
                 "Żyrafa masajska",
                 null);
 
+        var pawian = new Zwierze("Borys",
+                "Gwinea",
+                LocalDate.parse("2006-03-11"),
+                null,
+                "ssaki",
+                "Pawian gwinejski",
+                null);
+
+        var makak = new Zwierze("Bartosz",
+                "Stany Zjednoczone",
+                LocalDate.parse("2006-03-11"),
+                null,
+                "ssaki",
+                "Żyrafa masajska",
+                null);
+
         // Listy zwierzat //
 
         var zwierzeta = new ArrayList<Zwierze>();
@@ -55,20 +71,31 @@ public class Main {
                 "kg",
                 "Bóbr europejski",
                 40,
-                2);
+                1.5f);
         var karmaDlaZebr = new Karma(
                 "Karma dla zebr stepowych",
                 "kg",
                 "Zebra stepowa",
                 40,
-                3.40f); // ilosc 2
-        var karmaDlaZyraf = new Karma(
+                1.5f); // ilosc 2
+         var karmaDlaZyraf = new Karma(
                 "Karma dla żyraf masajskich",
                 "kg",
                 "Żyrafa masajska",
                 80,
-                7); // ilosc 5
-
+                7.0f); // ilosc 5
+        var karmaDlaPawianow = new Karma(
+                "Karma dla pawianów gwinejskich",
+                "kg",
+                "Pawian gwinejski",
+                70,
+                0.5f); // ilosc 4
+        var karmaDlaMakakow = new Karma(
+                "Karma dla makaków orientalnych",
+                "kg",
+                "Makak orientalny",
+                75,
+                0.5f); // ilosc 3
         // Zasady karmienia //
 
         bobr1.setZasadyKarmienia(new ZasadyKarmienia(
@@ -101,6 +128,19 @@ public class Main {
                 LocalTime.parse("09:00:00"),
                 5
         ));
+        pawian.setZasadyKarmienia(new ZasadyKarmienia(
+                pawian,
+                karmaDlaPawianow,
+                LocalTime.parse("09:30:00"),
+                4
+        ));
+        makak.setZasadyKarmienia(new ZasadyKarmienia(
+                makak,
+                karmaDlaMakakow,
+                LocalTime.parse("09:15:00"),
+                3
+        ));
+
 
         ZasadyKarmienia.ListaZasad.addAll(zwierzeta
                 .stream()
@@ -108,7 +148,7 @@ public class Main {
                 .toList()
         );
 
-        // Ekspozycje //
+        // -- Ekspozycje -- //
 
         // Wybiegi
         var wybiegBobrow = new Wybieg(
@@ -132,53 +172,97 @@ public class Main {
                 false,
                 "Step"
         );
+        var wybiegPawiana = new Wybieg(
+                4,
+                "Wybieg pawiana",
+                60,
+                true,
+                "Dżungla"
+        );
+        var wybiegMakaka= new Wybieg(
+                5,
+                "Wybieg makaka",
+                70,
+                true,
+                "Dżungla"
+        );
 
         wybiegBobrow.addZwierze(bobr1);
         wybiegBobrow.addZwierze(bobr2);
         wybiegBobrow.addZwierze(bobr3);
         wybiegZebry.addZwierze(zebra);
         wybiegZyrafy.addZwierze(zyrafa);
+        wybiegPawiana.addZwierze(pawian);
+        wybiegMakaka.addZwierze(makak);
+
+        var wybiegi = List.of(wybiegBobrow, wybiegZebry, wybiegZyrafy, wybiegPawiana, wybiegMakaka);
+
 
         // Alejki
-        var alejkaZebr = new ZbiorEkspozycji(
+        var alejkaZebr = new Ekspozycja(
                 20,
-                RodzajZbioru.Alejka,
+                RodzajEkspozycji.Alejka,
                 "Alejka zebr");
-        alejkaZebr.dodaj(wybiegZebry); // Ekspozycja interface
+        alejkaZebr.dodaj(wybiegZebry);
+
+        var alejkaMalp = new Ekspozycja(
+                50,
+                RodzajEkspozycji.Alejka,
+                "Alejka małp"
+        );
+        alejkaMalp.dodaj(wybiegPawiana);
+        alejkaMalp.dodaj(wybiegMakaka);
+
+        var alejki = List.of(alejkaMalp, alejkaZebr);
 
         // Pawilony
-        var pawilonStepowy = new ZbiorEkspozycji(
+        var pawilonStepowy = new Ekspozycja(
                 40,
-                RodzajZbioru.Pawilon,
+                RodzajEkspozycji.Pawilon,
                 "Pawilon stepowy"
         );
-        pawilonStepowy.dodaj(alejkaZebr); // Ekspozycja interface
-        pawilonStepowy.dodaj(wybiegZyrafy); // Ekspozycja interface
+        pawilonStepowy.dodaj(alejkaZebr);
+        pawilonStepowy.dodaj(wybiegZyrafy);
 
         // Strefy
-        var strefaAfrykanska = new ZbiorEkspozycji(
+        var strefaAfrykanska = new Ekspozycja(
                 300,
-                RodzajZbioru.Strefa,
+                RodzajEkspozycji.Strefa,
                 "Strefa afrykańska"
         );
         strefaAfrykanska.dodaj(pawilonStepowy);
+        strefaAfrykanska.dodaj(alejkaMalp);
 
         // Ogród zoologiczny
-        var ogrodZoologiczny = new ZbiorEkspozycji(     // normalnie raczej singleton
+        var ogrodZoologiczny = new Ekspozycja(
                 3500,
-                RodzajZbioru.OgrodZoologiczny,
+                RodzajEkspozycji.OgrodZoologiczny,
                 "Ogród zoologiczny"
         );
 
         ogrodZoologiczny.dodaj(strefaAfrykanska);
         ogrodZoologiczny.dodaj(wybiegBobrow);
 
-        System.out.println("Ilość karmy dla wybiegu bobrów na 1 dzień: " + wybiegBobrow.obliczIloscKarmy(1));
-        System.out.println("Ilość karmy dla wybiegu zebr na 1 dzień: " + wybiegZebry.obliczIloscKarmy(1));
-        System.out.println("Ilość karmy dla wybiegu żyrafy na 1 dzień: " + wybiegZyrafy.obliczIloscKarmy(1));
-        System.out.println("Ilość karmy dla alejki zebr na 1 dzień: " + alejkaZebr.obliczIloscKarmy(1));
-        System.out.println("Ilość karmy dla pawilonu stepowego na 1 dzień: " + pawilonStepowy.obliczIloscKarmy(1));
-        System.out.println("Ilość karmy dla strefy afrykańskiej na 1 dzień: " + strefaAfrykanska.obliczIloscKarmy(1));
-        System.out.println("Ilość karmy dla ogrodu zoologicznego na 1 dzień: " + ogrodZoologiczny.obliczIloscKarmy(1));
+
+        var wszystkieEkspozycje = new ArrayList<FragmentZoo>();
+        wszystkieEkspozycje.addAll(wybiegi);
+        wszystkieEkspozycje.addAll(alejki);
+        wszystkieEkspozycje.add(pawilonStepowy);
+        wszystkieEkspozycje.add(strefaAfrykanska);
+        wszystkieEkspozycje.add(ogrodZoologiczny);
+
+        // -- Demonstracja -- //
+
+        System.out.println();
+        System.out.println("=== Schemat ogrodu zoologicznego ===");
+        ogrodZoologiczny.print(0);
+        System.out.println();
+
+        System.out.println("=== Przykład: ilość karmy na 4 dni ===");
+
+        wszystkieEkspozycje.forEach(
+                fragmentZoo -> fragmentZoo.wypiszIloscKarmy(4)
+        );
+
     }
 }

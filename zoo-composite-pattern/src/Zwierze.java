@@ -32,7 +32,7 @@ public class Zwierze {
         this.zasadyKarmienia = zasadyKarmienia;
     }
 
-    // methods unrelated to the Composite pattern implementation
+    // metody niezwiązane z implementacją wzorca Composite
     public void wyswietlInformacje() {}
     public List<Raport> wyswietlKarteZwierzecia() { return null; }
     public List<Raport> wyswietlPodsumowanieKartyZwierzecia() { return null; }
