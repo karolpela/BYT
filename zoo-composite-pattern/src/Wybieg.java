@@ -2,15 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Wybieg implements Sekcja {
-    private final int id;
     private final String nazwa;
     private final float powierzchnia;
     private final boolean zakryty;
     private final String typSrodowiska;
     private final List<Zwierze> zwierzeta;
 
-    public Wybieg(int id, String nazwa, float powierzchnia, boolean zakryty, String typSrodowiska) {
-        this.id = id;
+    public Wybieg(String nazwa, float powierzchnia, boolean zakryty, String typSrodowiska) {
         this.nazwa = nazwa;
         this.powierzchnia = powierzchnia;
         this.zakryty = zakryty;

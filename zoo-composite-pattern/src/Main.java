@@ -152,35 +152,30 @@ public class Main {
 
         // Wybiegi
         var wybiegBobrow = new Wybieg(
-                1,
                 "Wybieg bobrów",
                 80,
                 false,
                 "Wodno-lądowe"
         );
         var wybiegZebry = new Wybieg(
-                2,
                 "Wybieg zebry",
                 100,
                 false,
                 "Step"
         );
         var wybiegZyrafy = new Wybieg(
-                3,
                 "Wybieg żyrafy",
                 120,
                 false,
                 "Step"
         );
         var wybiegPawiana = new Wybieg(
-                4,
                 "Wybieg pawiana",
                 60,
                 true,
                 "Dżungla"
         );
         var wybiegMakaka= new Wybieg(
-                5,
                 "Wybieg makaka",
                 70,
                 true,
