@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Wybieg implements FragmentZoo {
-    private int id;
-    private String nazwa;
-    private float powierzchnia;
-    private boolean zakryty;
-    private String typSrodowiska;
-    private List<Zwierze> zwierzeta;
+public class Wybieg implements Sekcja {
+    private final int id;
+    private final String nazwa;
+    private final float powierzchnia;
+    private final boolean zakryty;
+    private final String typSrodowiska;
+    private final List<Zwierze> zwierzeta;
 
     public Wybieg(int id, String nazwa, float powierzchnia, boolean zakryty, String typSrodowiska) {
         this.id = id;
@@ -46,7 +46,7 @@ public class Wybieg implements FragmentZoo {
         System.out.println(this.nazwa + "\t-> Ilość karmy na " + dni + " dni:\t" +  this.obliczIloscKarmy(dni) + " kg");
     }
 
-    public RodzajEkspozycji getRodzaj() {
-        return RodzajEkspozycji.Wybieg;
+    public RodzajSekcji getRodzaj() {
+        return RodzajSekcji.Wybieg;
     }
 }

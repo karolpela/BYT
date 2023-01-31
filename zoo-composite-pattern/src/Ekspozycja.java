@@ -1,27 +1,27 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-public class Ekspozycja implements FragmentZoo {
-    private List<FragmentZoo> ekspozycje;
-    private float powierzchniaPozaWybiegami;
+public class Ekspozycja implements Sekcja {
+    private final List<Sekcja> sekcje;
+    private final float powierzchniaPozaWybiegami;
     private float getPowierzchniaCalkowita() {return 0;}
-    private RodzajEkspozycji rodzaj;
-    private String opis;
+    private final RodzajSekcji rodzaj;
+    private final String opis;
 
-    public void dodaj(FragmentZoo wezel) {
-        ekspozycje.add(wezel);
+    public void dodaj(Sekcja wezel) {
+        sekcje.add(wezel);
     }
 
-    public void usun(FragmentZoo wezel) {
-        ekspozycje.remove(wezel);
+    public void usun(Sekcja wezel) {
+        sekcje.remove(wezel);
     }
 
-    public List<FragmentZoo> getEkspozycje() {
-        return this.ekspozycje;
+    public List<Sekcja> getSekcje() {
+        return this.sekcje;
     }
 
-    public Ekspozycja(float powierzchniaPozaWybiegami, RodzajEkspozycji rodzaj, String opis) {
-        this.ekspozycje = new ArrayList<>();
+    public Ekspozycja(float powierzchniaPozaWybiegami, RodzajSekcji rodzaj, String opis) {
+        this.sekcje = new ArrayList<>();
         this.powierzchniaPozaWybiegami = powierzchniaPozaWybiegami;
         this.rodzaj = rodzaj;
         this.opis = opis;
@@ -30,7 +30,7 @@ public class Ekspozycja implements FragmentZoo {
     @Override
     public float obliczIloscKarmy(int dni) {
         var iloscKarmy = 0f;
-        for (FragmentZoo e : this.ekspozycje) {
+        for (Sekcja e : this.sekcje) {
             iloscKarmy += e.obliczIloscKarmy(dni);
         }
         return iloscKarmy;
@@ -40,8 +40,8 @@ public class Ekspozycja implements FragmentZoo {
     public void print(int level) {
         System.out.println("|" + "---".repeat(level) + this.opis);
         level++;
-        this.ekspozycje.sort(Comparator.comparing(FragmentZoo::getRodzaj));
-        for (FragmentZoo f : this.ekspozycje) {
+        this.sekcje.sort(Comparator.comparing(Sekcja::getRodzaj));
+        for (Sekcja f : this.sekcje) {
             f.print(level);
         }
     }
@@ -52,7 +52,7 @@ public class Ekspozycja implements FragmentZoo {
     }
 
     @Override
-    public RodzajEkspozycji getRodzaj() {
+    public RodzajSekcji getRodzaj() {
         return this.rodzaj;
     }
 

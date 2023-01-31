@@ -1,9 +1,9 @@
 public class Karma {
-    private String nazwa;
-    private String jednostka;
-    private String dlaGatunku;
-    private float iloscZapasu;
-    private float przelicznik;
+    private final String nazwa;
+    private final String jednostka;
+    private final String dlaGatunku;
+    private final float iloscZapasu;
+    private final float przelicznik;
 
     public Karma(String nazwa, String jednostka, String dlaGatunku, float iloscZapasu, float przelicznik) {
         this.nazwa = nazwa;

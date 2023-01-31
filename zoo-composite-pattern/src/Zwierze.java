@@ -2,12 +2,12 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Zwierze {
-    private String imie;
-    private String krajPochodzenia;
-    private LocalDate dataUrodzenia;
-    private LocalDate dataSmierci;
-    private String gromada;
-    private String gatunek;
+    private final String imie;
+    private final String krajPochodzenia;
+    private final LocalDate dataUrodzenia;
+    private final LocalDate dataSmierci;
+    private final String gromada;
+    private final String gatunek;
 
     private ZasadyKarmienia zasadyKarmienia;
 

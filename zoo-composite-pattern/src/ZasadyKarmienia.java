@@ -5,10 +5,10 @@ import java.util.List;
 public class ZasadyKarmienia {
     public static List<ZasadyKarmienia> ListaZasad = new ArrayList<>();
 
-    private Zwierze zwierze;
-    private Karma karma;
-    private LocalTime godzinaKarmienia;
-    private int iloscKarmy;
+    private final Zwierze zwierze;
+    private final Karma karma;
+    private final LocalTime godzinaKarmienia;
+    private final int iloscKarmy;
 
     public ZasadyKarmienia(Zwierze zwierze, Karma karma, LocalTime godzinaKarmienia, int iloscKarmy) {
         this.zwierze = zwierze;

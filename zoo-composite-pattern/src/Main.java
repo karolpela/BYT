@@ -201,13 +201,13 @@ public class Main {
         // Alejki
         var alejkaZebr = new Ekspozycja(
                 20,
-                RodzajEkspozycji.Alejka,
+                RodzajSekcji.Alejka,
                 "Alejka zebr");
         alejkaZebr.dodaj(wybiegZebry);
 
         var alejkaMalp = new Ekspozycja(
                 50,
-                RodzajEkspozycji.Alejka,
+                RodzajSekcji.Alejka,
                 "Alejka małp"
         );
         alejkaMalp.dodaj(wybiegPawiana);
@@ -218,7 +218,7 @@ public class Main {
         // Pawilony
         var pawilonStepowy = new Ekspozycja(
                 40,
-                RodzajEkspozycji.Pawilon,
+                RodzajSekcji.Pawilon,
                 "Pawilon stepowy"
         );
         pawilonStepowy.dodaj(alejkaZebr);
@@ -227,7 +227,7 @@ public class Main {
         // Strefy
         var strefaAfrykanska = new Ekspozycja(
                 300,
-                RodzajEkspozycji.Strefa,
+                RodzajSekcji.Strefa,
                 "Strefa afrykańska"
         );
         strefaAfrykanska.dodaj(pawilonStepowy);
@@ -236,7 +236,7 @@ public class Main {
         // Ogród zoologiczny
         var ogrodZoologiczny = new Ekspozycja(
                 3500,
-                RodzajEkspozycji.OgrodZoologiczny,
+                RodzajSekcji.OgrodZoologiczny,
                 "Ogród zoologiczny"
         );
 
@@ -244,12 +244,12 @@ public class Main {
         ogrodZoologiczny.dodaj(wybiegBobrow);
 
 
-        var wszystkieEkspozycje = new ArrayList<FragmentZoo>();
-        wszystkieEkspozycje.addAll(wybiegi);
-        wszystkieEkspozycje.addAll(alejki);
-        wszystkieEkspozycje.add(pawilonStepowy);
-        wszystkieEkspozycje.add(strefaAfrykanska);
-        wszystkieEkspozycje.add(ogrodZoologiczny);
+        var wszystkieSekcje = new ArrayList<Sekcja>();
+        wszystkieSekcje.addAll(wybiegi);
+        wszystkieSekcje.addAll(alejki);
+        wszystkieSekcje.add(pawilonStepowy);
+        wszystkieSekcje.add(strefaAfrykanska);
+        wszystkieSekcje.add(ogrodZoologiczny);
 
         // -- Demonstracja -- //
 
@@ -260,8 +260,8 @@ public class Main {
 
         System.out.println("=== Przykład: ilość karmy na 4 dni ===");
 
-        wszystkieEkspozycje.forEach(
-                fragmentZoo -> fragmentZoo.wypiszIloscKarmy(4)
+        wszystkieSekcje.forEach(
+                sekcja -> sekcja.wypiszIloscKarmy(4)
         );
 
     }
