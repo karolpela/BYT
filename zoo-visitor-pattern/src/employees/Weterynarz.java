@@ -15,9 +15,8 @@ public class Weterynarz extends Pracownik {
     public Weterynarz(String imie, String nazwisko, char plec, String pesel,
                       LocalDate dataUrodzenia, LocalDate dataZatrudnienia,
                       LocalDate dataZwolnienia, String numerTelefonu,
-                      String email,
-                      String numerKonta, int stazPracyPozaZoo
-            , String stopienNaukowy, File dyplomUkonczeniaStudiow,
+                      String email, String numerKonta, int stazPracyPozaZoo,
+                      String stopienNaukowy, File dyplomUkonczeniaStudiow,
                       List<String> specjalizacjeZoologiczne) {
         super(imie, nazwisko, plec, pesel, dataUrodzenia, dataZatrudnienia,
                 dataZwolnienia,

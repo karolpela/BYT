@@ -20,7 +20,7 @@ public class Faktura {
         this.dataWystawienia = dataWystawienia;
         this.wynagrodzenieBrutto = wynagrodzenieBrutto;
         this.numerKonta = numerKonta;
-        this.status = "Niezaksegowana";
+        this.status = "Niezaksięgowana";
         this.pracownik = pracownik;
     }
 

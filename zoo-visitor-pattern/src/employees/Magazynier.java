@@ -11,9 +11,7 @@ public class Magazynier extends Pracownik {
     public Magazynier(String imie, String nazwisko, char plec, String pesel,
                       LocalDate dataUrodzenia, LocalDate dataZatrudnienia,
                       LocalDate dataZwolnienia, String numerTelefonu,
-                      String email,
-                      String numerKonta,
-                      File licencjaNaWozekWidlowy) {
+                      String email, String numerKonta, File licencjaNaWozekWidlowy) {
         super(imie, nazwisko, plec, pesel, dataUrodzenia, dataZatrudnienia,
                 dataZwolnienia,
                 numerTelefonu, email, numerKonta);

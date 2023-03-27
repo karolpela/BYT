@@ -10,12 +10,9 @@ public class Opiekun extends Pracownik {
     private final LocalDate dataUkonczeniaStudiow;
 
     public Opiekun(String imie, String nazwisko, char plec, String pesel,
-                   LocalDate dataUrodzenia
-            , LocalDate dataZatrudnienia, LocalDate dataZwolnienia,
-                   String numerTelefonu,
-                   String email, String numerKonta, boolean czyStudent,
-                   String kierunekStudiow,
-                   LocalDate dataUkonczeniaStudiow) {
+                   LocalDate dataUrodzenia, LocalDate dataZatrudnienia, LocalDate dataZwolnienia,
+                   String numerTelefonu, String email, String numerKonta, boolean czyStudent,
+                   String kierunekStudiow, LocalDate dataUkonczeniaStudiow) {
         super(imie, nazwisko, plec, pesel, dataUrodzenia, dataZatrudnienia,
                 dataZwolnienia,
                 numerTelefonu, email, numerKonta);

@@ -1,6 +1,8 @@
 package employees;
 
 import documents.Faktura;
+import documents.WniosekOUrlop;
+import implementations.TypUrlopuVisitor;
 import interfaces.Visitor;
 
 import java.time.LocalDate;
@@ -24,12 +26,12 @@ public abstract class Pracownik {
     private final String numerKonta;
 
     private final List<Faktura> faktury;
+    private final List<WniosekOUrlop> wnioskiOUrlop;
 
     public Pracownik(String imie, String nazwisko, char plec, String pesel,
                      LocalDate dataUrodzenia, LocalDate dataZatrudnienia,
                      LocalDate dataZwolnienia, String numerTelefonu,
-                     String email,
-                     String numerKonta) {
+                     String email, String numerKonta) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.plec = plec;
@@ -42,13 +44,25 @@ public abstract class Pracownik {
         this.numerKonta = numerKonta;
 
         this.faktury = new ArrayList<>();
+        this.wnioskiOUrlop = new ArrayList<>();
     }
+
 
     public static float getWynagrodzenie() {
         return wynagrodzenie;
     }
 
     public abstract <T> T accept(Visitor<T> v);
+
+    public void dodajWniosekOUrlop(WniosekOUrlop w) {
+        this.wnioskiOUrlop.add(w);
+    }
+
+    public int getPozostaleDniUrlopu() {
+        // Wykorzystane dni urlopowe powinny być odejmowane po pozytywnym
+        // rozpatrzeniu wniosku o urlop
+        return dniUrlopowe;
+    }
 
     public void dodajFakture(Faktura f) {
         this.faktury.add(f);
@@ -68,9 +82,6 @@ public abstract class Pracownik {
 
     public int obliczPozostaleDniUrlopowe() {
         return 0;
-    }
-
-    public void dodajWniosekOUrlop() {
     }
 
     @Override

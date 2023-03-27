@@ -8,8 +8,7 @@ public class Kierownik extends Pracownik {
     public Kierownik(String imie, String nazwisko, char plec, String pesel,
                      LocalDate dataUrodzenia, LocalDate dataZatrudnienia,
                      LocalDate dataZwolnienia, String numerTelefonu,
-                     String email,
-                     String numerKonta) {
+                     String email, String numerKonta) {
         super(imie, nazwisko, plec, pesel, dataUrodzenia, dataZatrudnienia,
                 dataZwolnienia,
                 numerTelefonu, email, numerKonta);

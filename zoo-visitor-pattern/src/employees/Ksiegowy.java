@@ -14,8 +14,7 @@ public class Ksiegowy extends Pracownik {
 
     public Ksiegowy(String imie, String nazwisko, char plec, String pesel,
                     LocalDate dataUrodzenia, LocalDate dataZatrudnienia,
-                    LocalDate dataZwolnienia
-            , String numerTelefonu, String email, String numerKonta,
+                    LocalDate dataZwolnienia, String numerTelefonu, String email, String numerKonta,
                     File dyplomUkonczeniaStudiow) {
         super(imie, nazwisko, plec, pesel, dataUrodzenia, dataZatrudnienia,
                 dataZwolnienia,

@@ -22,9 +22,8 @@ public class ObliczanieWynagrodzeniaVisitor implements Visitor<Float> {
 
     @Override
     public Float visit(Przewodnik p) {
-        float przelicznik = 1.0f;
         float premia = p.znaPolski() ? 300 : 0;
-        return wynagrodzeniePodstawowe * przelicznik + premia;
+        return wynagrodzeniePodstawowe + premia;
     }
 
     @Override
